@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s| 
 s.name = 'qmTestBuyChannel'
-s.version = '1.0.3'
+s.version = '1.0.4'
 s.summary      = "qmTestBuyChannelFramework测试"
 s.description  = <<-DESC
 测试framework,测试静态库上传cocoapods
@@ -14,7 +14,7 @@ s.source = { :git => 'https://github.com/qiaoming1990321/buyChannelTest.git', :t
 s.vendored_frameworks = "*.framework"
 s.source_files = '*.framework/Headers/*.h'
 s.requires_arc = true 
-s.framework = 'UIKit' 
+s.framework = 'UIKit' ,'AdSupport','iAd'
 s.dependency "AppsFlyerFramework"
 
 end

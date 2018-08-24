@@ -11,6 +11,20 @@ FOUNDATION_EXPORT double GOMOBuyChannelVersionNumber;
 
 //! Project version string for GOMOBuyChannel.
 FOUNDATION_EXPORT const unsigned char GOMOBuyChannelVersionString[];
+
+
+@protocol GOMOBuyChannelDelegate <NSObject>
+
+@optional
+
+/*
+ 回调AF返回的原始数据 到appDelegate
+ */
+- (void) buyChannelOnConversionDataReceived:(NSDictionary*) installData;
+- (void) buyChannelOnConversionDataRequestFailure:(NSError *)error;
+
+@end
+
 @interface GOMOBuyChannel : NSObject
 /**
  用户类型sdk的初始化方法,请用这个方法初始化
@@ -33,6 +47,10 @@ FOUNDATION_EXPORT const unsigned char GOMOBuyChannelVersionString[];
 
 /* Use this property to set your app's Apple ID (taken from the app's page on iTunes Connect) */
 @property (nonatomic, strong, setter=setAppleAppID:) NSString *appleAppID;
+/*
+ * GOMOBuyChannel delegate. See GOMOBuyChannelDelegate abvoe
+ */
+@property (weak, nonatomic) id<GOMOBuyChannelDelegate> delegate;
 
 +(void)trackAppLaunch;
 

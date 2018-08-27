@@ -1,6 +1,0 @@
-framework module GOMOBuyChannel {
-  umbrella header "GOMOBuyChannel.h"
-
-  export *
-  module * { export * }
-}

@@ -19,6 +19,16 @@
 @property (nonatomic, copy) NSString *adgroup_name;
 @property (nonatomic, copy) NSString *adset_name;
 @property (nonatomic, copy) NSString *is_fb;
+/*buyChannel的值(优先级从上往下一次降低)
+  2   FB自投
+  3   FB非自投
+  4   Adwords自投
+  6   Adwords非自投
+  1   GA买量
+  0   自然带量
+  7   非自然带量
+  -1  GP自然
+ */
 @property (nonatomic, copy) NSString *buyChannel;
 @property (nonatomic, copy) NSString *af_status;
 

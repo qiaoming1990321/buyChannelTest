@@ -4,7 +4,8 @@
 //
 //  Created by qiaoming on 2018/8/21.
 //  Copyright © 2018年 qiaoming. All rights reserved.
-//
+//#import <GOMOStatistics/GOMOStatistics.h>
+//#import <GOMOStatistics/GOMOStatisticsDeviceInfo.h>
 
 #import <Foundation/Foundation.h>
 #import "GMBuyChannelFlyerModel.h"

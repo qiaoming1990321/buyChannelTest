@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GMBuyChannelFlyerModel.h"
+
 FOUNDATION_EXPORT double GOMOBuyChannelVersionNumber;
 
 //! Project version string for GOMOBuyChannel.
@@ -47,10 +49,13 @@ FOUNDATION_EXPORT const unsigned char GOMOBuyChannelVersionString[];
 
 /* Use this property to set your app's Apple ID (taken from the app's page on iTunes Connect) */
 @property (nonatomic, strong, setter=setAppleAppID:) NSString *appleAppID;
+/* 你可以用这个属性 获取af返回的关键信息  例如:media_source  和  buychannel, agency*/
+@property (nonatomic, strong) GMBuyChannelFlyerModel *channelFlyerModel;
 /*
  * GOMOBuyChannel delegate. See GOMOBuyChannelDelegate abvoe
  */
 @property (weak, nonatomic) id<GOMOBuyChannelDelegate> delegate;
+
 
 +(void)trackAppLaunch;
 

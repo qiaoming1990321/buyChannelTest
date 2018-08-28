@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s| 
 s.name = 'qmTestBuyChannel'
-s.version = '1.4.0'
+s.version = '1.4.1'
 s.summary      = "qmTestBuyChannelFramework测试"
 s.description  = <<-DESC
 测试framework,测试静态库上传cocoapods
@@ -16,5 +16,6 @@ s.source_files = '*.framework/Headers/*.h'
 s.requires_arc = true 
 s.framework = 'UIKit' ,'AdSupport','iAd'
 s.dependency "AppsFlyerFramework"
+s.dependency "GOMOStatistics"
 
 end

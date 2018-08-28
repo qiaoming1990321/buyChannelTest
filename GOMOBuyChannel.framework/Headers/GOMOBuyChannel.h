@@ -23,33 +23,28 @@ FOUNDATION_EXPORT const unsigned char GOMOBuyChannelVersionString[];
 /*
  回调AF返回的原始数据 到appDelegate
  */
-- (void) buyChannelOnConversionDataReceived:(NSDictionary*) installData;
+- (void) buyChannelOnConversionDataReceived:(NSMutableDictionary*) installData;
 - (void) buyChannelOnConversionDataRequestFailure:(NSError *)error;
 
 @end
 
 @interface GOMOBuyChannel : NSObject
-/**
- 用户类型sdk的初始化方法,请用这个方法初始化
- 
- @param appsDevKey AppsFlyer上面返回的appsDevKey
- @param appleAppID AppsFlyer上面返回的appleAppID
- */
 
-+(GOMOBuyChannel*) sharedBuyChannelAppsDevKey:(NSString *)appsDevKey appleAppID:(NSString *)appleAppID;
+//AF原始数据
+@property (nonatomic, strong) NSMutableDictionary *afOriginalData;
+//统计对象
+@property (nonatomic, copy) NSString *utmSource;
+//AF明细
+@property (nonatomic, copy) NSString *afDetail;
+//reffer Referrer 暂时传的空
+@property (nonatomic, copy) NSString *referrerData;
+//AF Agency
+@property (nonatomic, copy) NSString *afAgency;
+//用户类型标识
+@property (nonatomic, copy) NSString *userSource;
+//appsflyVersion 推广SDK版本
+@property (nonatomic, copy) NSString *appsFlyVersion;
 
-/* In case you use your own user ID in your app, you can set this property to that ID. */
-@property (nonatomic, strong, setter=setCustomerUserID:) NSString *customerUserID;
-
-
-/* In case you use Custom data and you want to receive it in the raw reports.*/
-@property (nonatomic, strong, setter=setAdditionalData:) NSDictionary *customData;
-
-/* Use this property to set your AppsFlyer's dev key. */
-@property (nonatomic, strong, setter=setAppsFlyerDevKey:) NSString *appsFlyerDevKey;
-
-/* Use this property to set your app's Apple ID (taken from the app's page on iTunes Connect) */
-@property (nonatomic, strong, setter=setAppleAppID:) NSString *appleAppID;
 /* 你可以用这个属性 获取af返回的关键信息  例如:media_source  和  buychannel, agency*/
 @property (nonatomic, strong) GMBuyChannelFlyerModel *channelFlyerModel;
 /*
@@ -57,12 +52,15 @@ FOUNDATION_EXPORT const unsigned char GOMOBuyChannelVersionString[];
  */
 @property (weak, nonatomic) id<GOMOBuyChannelDelegate> delegate;
 
-
-+(void)trackAppLaunch;
-
 /**
- 获取appsFly的版本号
+ 用户类型sdk的初始化方法,请用这个方法初始化
+ 
+ @param appsDevKey AppsFlyer上面返回的appsDevKey
+ @param appleAppID AppsFlyer上面返回的appleAppID
  */
-+(NSString *)appsFlyVersion;
++(GOMOBuyChannel*) sharedBuyChannelAppsDevKey:(NSString *)appsDevKey appleAppID:(NSString *)appleAppID;
+//确保初始化完成之后 才能使用这个获取单利的方法,目的是获取值使用的
++(GOMOBuyChannel*)getGomoBuyChannel;
++(void)trackAppLaunch;
 
 @end

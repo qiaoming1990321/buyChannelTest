@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s| 
 s.name = 'qmTestBuyChannel'
-s.version = '1.2.0'
+s.version = '1.3.0'
 s.summary      = "qmTestBuyChannelFramework测试"
 s.description  = <<-DESC
 测试framework,测试静态库上传cocoapods

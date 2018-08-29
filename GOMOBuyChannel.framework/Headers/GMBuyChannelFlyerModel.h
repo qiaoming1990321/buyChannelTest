@@ -18,7 +18,7 @@
 @property (nonatomic, copy) NSString *agency;
 @property (nonatomic, copy) NSString *adgroup_name;
 @property (nonatomic, copy) NSString *adset_name;
-@property (nonatomic, assign) BOOL *is_fb;
+@property (nonatomic, assign) BOOL is_fb;
 /*buyChannel的值(优先级从上往下一次降低)
   2   FB自投
   3   FB非自投
